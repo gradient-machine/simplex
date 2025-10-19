@@ -1,31 +1,46 @@
 +++
-title= "Compile_transformers" # Title of the blog post.
-date= 2025-10-18T02:44:17-04:00 # Date of post creation.
-description= "Article description." # Description used for search engine.
-featured= true # Sets if post is a featured post, making appear on the home page side bar.
-draft= true # Sets whether to render this page. Draft of true will not be rendered.
-toc= false # Controls if a table of contents should be generated for first-level links automatically.
-# menu: main
-usePageBundles= false # Set to true to group assets like images in the same folder as this post.
-# featureImage: "/images/path/file.jpg" # Sets featured image on blog post.
-# featureImageAlt: 'Description of image' # Alternative text for featured image.
-# featureImageCap: 'This is the featured image.' # Caption (optional).
-# thumbnail: "/images/path/thumbnail.png" # Sets thumbnail image appearing inside card on homepage.
-# shareImage: "/images/path/share.png" # Designate a separate image for social media sharing.
-codeMaxLines= 10 # Override global value for how many lines within a code block before auto-collapsing.
-codeLineNumbers= false # Override global value for showing of line numbers within code block.
-figurePositionShow= true # Override global value for showing the figure label.
-categories= [
-  "Technology"
+author = "Hugo Authors"
+title = "Artificial Intelligence"
+date = "2019-03-05"
+description = "Guide to emoji usage in Hugo"
+tags = [
+    "emoji",
 ]
-tags= [
-  "Tag_name1",
-  "Tag_name2"
-]
-# comment: false # Disable comment if false.
 +++
 
-**Insert Lead paragraph here.**
+Emoji can be enabled in a Hugo project in a number of ways. 
+<!--more-->
+The [`emojify`](https://gohugo.io/functions/emojify/) function can be called directly in templates or [Inline Shortcodes](https://gohugo.io/templates/shortcode-templates/#inline-shortcodes). 
 
-### The goal 
-* Providing a survey on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures on the SOTA transformer architectures 
+To enable emoji globally, set `enableEmoji` to `true` in your site's [configuration](https://gohugo.io/getting-started/configuration/) and then you can type emoji shorthand codes directly in content files; e.g.
+
+<p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
+<br>
+
+The [Emoji cheat sheet](http://www.emoji-cheat-sheet.com/) is a useful reference for emoji shorthand codes.
+
+***
+
+**N.B.** The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.
+
+{{< highlight html >}}
+.emoji {
+  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+}
+{{< /highlight >}}
+
+{{< css.inline >}}
+<style>
+.emojify {
+	font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+	font-size: 2rem;
+	vertical-align: middle;
+}
+@media screen and (max-width:650px) {
+  .nowrap {
+    display: block;
+    margin: 25px 0;
+  }
+}
+</style>
+{{< /css.inline >}}
